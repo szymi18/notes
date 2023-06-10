@@ -3,8 +3,9 @@
 {% block content %}
     <h1>All your notes</h1>
     {% for note in notes %}
-        <h2><a href="{% url 'note_detail' pk=note.pk %}">{{ note.title }}</a></h2>
-        <p>{{ note.created_date }}</p>
+        <h2><a href="{% url 'notesApp:note_detail' pk=note.pk %}">{{ note.title }}</a></h2>
+        <p>{{ note.creation_date }}</p>
         <p>By{{ note.author }}</p>
+
     {% endfor %}
 {% endblock %}
