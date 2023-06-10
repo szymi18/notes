@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from notesApp.models import Note
@@ -8,6 +9,7 @@ def note_list(request):
     notes = Note.objects.all()
     return render(request, 'notes/note_list.html', {'notes' : notes})
 
+
 def note_create(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
@@ -15,10 +17,14 @@ def note_create(request):
             note = form.save(commit=False)
             note.author = request.user
             note.save()
-            return redirect('note_detail', pk=note.pk)
-        else:
-            form = NoteForm()
-        return render(request, 'notes/note_form.html', {'form' : form})
+
+            return redirect('notesApp:note_detail', pk=note.pk)
+
+    else:
+        form = NoteForm()
+
+    return render(request, 'notes/note_form.html', {'form': form})
+
 
 
 def note_detail(request, pk):
@@ -33,7 +39,7 @@ def note_edit(request, pk):
             note = form.save(commit=False)
             note.author = request.user
             note.save()
-            return redirect('note_detail', pk=note.pk)
+            return redirect('notesApp:note_detail', pk=note.pk)
     else:
         form = NoteForm(instance=note)
     return render(request, 'notes/note_form.html', {'form' : form})

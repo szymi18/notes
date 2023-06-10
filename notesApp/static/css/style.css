@@ -1,5 +1,36 @@
 body {
     font-family: "Roboto Thin";
     background-color: gray;
+
 }
+
+main {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: black;
+
+
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px;
+    color: mediumaquamarine;
+
+}
+
+a {
+    text-decoration: none;
+
+
+}
+
 

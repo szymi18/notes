@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% if form.instance.pk %}Edit Note{% else %}Create New Note{% endif %}</h1>
-    <form method="post">
-    {%  csrf_token %}
+  <h1>{% if form.instance.pk %}Edytuj Notatkę{% else %}Stwórz nową notatkę{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">save</button>
-    </form>
-
+    <button type="submit">Zapisz</button>
+  </form>
 {% endblock %}
