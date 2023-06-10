@@ -20,6 +20,7 @@ def note_create(request):
             form = NoteForm()
         return render(request, 'notes/note_form.html', {'form' : form})
 
+
 def note_detail(request, pk):
     note = get_object_or_404(Note, pk=pk)
     return render(request, 'notes/note_detail.html', {'note': note})

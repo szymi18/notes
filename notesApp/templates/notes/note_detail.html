@@ -4,6 +4,6 @@
     <h1>{{ note.title }}</h1>
     <p>{{ note.content }}</p>
     <p>{{ note.created_date }}</p>
-    <p>By:{{ note.author }}</p>
-    <p><a href="{% url 'note_edit' pk=note.pk %}">Edit Note</a></p>
+    <p>Utworzona przez:{{ note.author }}</p>
+    <p><a href="{% url 'notesApp:note_edit' pk=note.pk %}">Edytuj notatkę</a></p>
 {% endblock %}
